@@ -8,7 +8,7 @@ import { Carrito } from "../Carrito/Carrito"
 
 
 const NavBar = ({children}) => {
-  //console.log(children);
+  console.log(children);
     return (
       <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

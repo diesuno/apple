@@ -1,7 +1,7 @@
-
+import logo from './logo.svg';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+import ItemListContainer from './Components/NavBar/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
