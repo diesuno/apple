@@ -1,0 +1,9 @@
+.nav{
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 50px 25px 25px 25px;
+    column-gap: 25px;
+}
+.nav1{
+    font-size: 25px;
+}

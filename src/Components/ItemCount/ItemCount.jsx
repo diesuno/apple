@@ -1,6 +1,7 @@
 import { useState } from 'react'
+export const ItemCount = ({initial,stock,onAdd}) =>{
 
-function ItemCount ({initial,stock,onAdd}){
+
     const [contador,setcontador] = useState(initial)
     const handleUp = ()=>{
         if (contador < stock){
@@ -31,4 +32,3 @@ function ItemCount ({initial,stock,onAdd}){
 
     
 
-export default ItemCount

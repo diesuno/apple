@@ -1,54 +1,33 @@
-import { useEffect, useState } from "react"
-import { getFetch } from "../../Productos/products"
-import ItemCount from "../ItemCount/ItemCount"
+import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import getProducts from '../../Helpers/getProducts';
+import ItemList from '../ItemList/ItemList';
 
+const ItemListContainer = () => {
+    const [ListadoProductos, setListadoProductos] = useState([]);
+    
+    const {categoria} = useParams()
 
-function ItemListContainer (){
-    const [productos,setProductos] = useState([])
-    const [loading, setloading] = useState(true)
+        useEffect(()=> {
 
-    useEffect(()=>{
-        getFetch
-        .then(res => setProductos(res))
-        .catch(err => console.log(err))
-        .finally(()=> setloading(false))
-    },[])
+            if (categoria) {
+                getProducts()
+                .then(productos => setListadoProductos (productos.filter( prod => prod.categoria === categoria)))
+                .catch((error) => console.log(error));
+            }else{
+                getProducts()
+                .then(productos => setListadoProductos (productos))
+                .catch((error) => console.log(error));
+                
+            }
+        },[categoria])
 
-    function onAdd(cant){
-        console.log(cant);
-    }
-
+        console.log(categoria);
     return (
         <div>
-            { loading ? <h2>Cargando ...</h2> :
-                                    productos.map( prod => <div 
-                                        key={prod.id}
-                                        className='col-md-4'
-                                    >                        
-                                        <div className="card w-100 mt-5" >
-                                            <div className="card-header">
-                                                {`${prod.nombre}`}
-                                            </div>
-                                            <div className="card-body">
-                                                <img src={prod.img} alt='' className='w-50' />
-                                                <br />
-                                                <h3>$ {prod.valor}</h3>                                                          
-                                            </div>
-                                            <div className="card-footer">
-                                                {`${prod.descripcion}`}                                                            
-                                            </div>
-
-                                        </div>
-                                        <br />
-                                        <ItemCount initial={1} stock={`${prod.stock}`} onAdd={onAdd} />
-                                    </div>                                    
-            
-            ) }           
-            
-            
+            <ItemList listado={ListadoProductos}/>
         </div>
-    )
-}
+    );
+};
 
 export default ItemListContainer
-

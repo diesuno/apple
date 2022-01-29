@@ -2,34 +2,39 @@ import  Navbar  from "react-bootstrap/Navbar"
 import  Container from "react-bootstrap/Container"
 import  Nav  from "react-bootstrap/Nav"
 import { Carrito } from "../Carrito/Carrito"
+import  {Link}  from "react-router-dom"
+import "./NavBar.css"
 
 
 
 
 
-const NavBar = ({children}) => {
-  //console.log(children);
+
+
+const NavBar = () => {
+
     return (
       <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-              <Navbar.Brand href="#home">MacKnow</Navbar.Brand>
+            <Link className='text-white nav1 nav' to="/">MacKnow</Link>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="#Productos">Productos</Nav.Link>
-                  <Nav.Link href="#Contacto">Contacto</Nav.Link>
-                  
+                  <Link className='text-white nav2 nav' to='/categoria/iphone'>iPhone</Link>
+                  <Link className='text-white nav3 nav' to='/categoria/mac'>Mac</Link>
+                  <Link className='text-white nav4 nav' to='/categoria/contacto'>Contacto</Link>  
                 </Nav>
                 <Nav>
-                  <Nav.Link eventKey={2} href="#Carrito">
-                   <Carrito/>
-                  </Nav.Link>
+                <Link to="/cart">
+                  <Carrito/>
+                </Link> 
                 </Nav>
               </Navbar.Collapse>
             </Container>
          </Navbar>
-         {children[0]}
+         
+        
          </>
     )
 }
