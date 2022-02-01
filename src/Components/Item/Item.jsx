@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ItemCount } from '../ItemCount/ItemCount';
+import "./Item.css"
+
 
 
 
@@ -10,7 +11,7 @@ const Item = ({id, nombre, descripcion, valor, img, stock, onAdd}) => {
     
 
     return (
-            <div>
+            <div className='cards' id={id}>
                 <div className="card w-25 mt-5" >
                     <div className="card-header">
                         {nombre}

@@ -1,10 +1,10 @@
-import Iphone12Pro from "../Components/Image/iphone12pro.png"
-import IphoneXR from "../Components/Image//iphonexr.png"
-import IphoneSE from "../Components/Image//iphonese.png"
-import MacaM1 from "../Components/Image/macam1.png"
-import MbpM1 from "../Components/Image/mbpm1.png"
-import ImacM1 from "../Components/Image/imacm1.png"
-import MacMiniM1 from "../Components/Image/macminim1.png"
+import Iphone12Pro from "../image/iphone12pro.png"
+import IphoneXR from "../image//iphonexr.png"
+import IphoneSE from "../image//iphonese.png"
+import MacaM1 from "../image/macam1.png"
+import MbpM1 from "../image/mbpm1.png"
+import ImacM1 from "../image/imacm1.png"
+import MacMiniM1 from "../image/macminim1.png"
 
 
 const productos = [{
