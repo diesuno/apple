@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import getProducts from '../../Helpers/getProducts';
 import ItemList from '../ItemList/ItemList';
 
+
 const ItemListContainer = () => {
     const [ListadoProductos, setListadoProductos] = useState([]);
-    
+    const [loading, setloading] = useState(true)
     const {categoria} = useParams()
 
         useEffect(()=> {
@@ -13,11 +14,13 @@ const ItemListContainer = () => {
             if (categoria) {
                 getProducts()
                 .then(productos => setListadoProductos (productos.filter( prod => prod.categoria === categoria)))
-                .catch((error) => console.log(error));
+                .catch((error) => console.log(error))
+                .finally(() => setloading(false) )
             }else{
                 getProducts()
                 .then(productos => setListadoProductos (productos))
-                .catch((error) => console.log(error));
+                .catch((error) => console.log(error))
+                .finally(() => setloading(false) )
                 
             }
         },[categoria])
@@ -25,7 +28,13 @@ const ItemListContainer = () => {
         console.log(categoria);
     return (
         <div>
-            <ItemList listado={ListadoProductos}/>
+            {
+                loading ? 
+                <h2>Cargando...</h2>
+                :
+                <ItemList listado={ListadoProductos}/>
+            }
+            
         </div>
     );
 };

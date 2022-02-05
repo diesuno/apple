@@ -3,6 +3,7 @@ export const ItemCount = ({initial,stock,onAdd}) =>{
 
 
     const [contador,setcontador] = useState(initial)
+    
     const handleUp = ()=>{
         if (contador < stock){
             setcontador(contador +1)
@@ -21,7 +22,7 @@ export const ItemCount = ({initial,stock,onAdd}) =>{
         <div className="container w-50">
             <button className="btn btn-outline-primary"  onClick={handleUp}> + </button>
 
-            {`  ${contador}  `}
+            <h5>{`  ${contador}  `}</h5>
            
             <button className="btn btn-outline-primary" onClick={handleDown}> - </button> <br />
             <br />

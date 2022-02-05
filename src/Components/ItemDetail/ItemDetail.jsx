@@ -2,12 +2,16 @@ import React from 'react';
 import './ItemDetail.css';
 import { Card, Button } from 'react-bootstrap';
 import { ItemCount } from '../ItemCount/ItemCount';
+import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { useCartContext } from "../../context/CartContext";
 
 
 const ItemDetail = ({detalle}) => {
-    //console.log(detalle);
+   const [contador,setContador] = useState(0)
+   const { cardList, agregarAlCarrito} = useCartContext ()
     function onAdd (cant){
-        console.log(cant);
+        setContador(cant)
     }
     
     return <div>
@@ -19,7 +23,20 @@ const ItemDetail = ({detalle}) => {
                         <div className='col-6 info'>
                             <h1>{detalle.nombre}</h1>
                             <p>{detalle.descripcion}</p>
-                            <ItemCount initial = {1} stock = {detalle.stock} onAdd={onAdd} /> 
+                            {
+                    contador === 0 ?
+                        <ItemCount onAdd={onAdd} initial={1} stock={detalle.stock} />                    
+                    : 
+                        <>
+                            <Link to='/cart'>
+                                <button className="btn btn-outline-primary">Terminar compra</button>
+                            </Link>
+                            <Link to='/'>
+                                <button className="btn btn-outline-primary">Seguir Comprando</button>
+                            </Link>
+                        </>
+                }
+
                         </div>
                     </div>
                 </div>

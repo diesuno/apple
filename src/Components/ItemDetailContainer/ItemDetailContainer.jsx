@@ -9,6 +9,7 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 const ItemDetailContainer = () => {
 
     const [DetalleProducto, setDetalleProducto] = useState([]);
+    const [loading, setLoading] = useState(true);
     const {id} = useParams();
     console.log(DetalleProducto);
 
@@ -18,20 +19,32 @@ const ItemDetailContainer = () => {
             
             getProducts()
             .then(productos => setDetalleProducto (productos.find( prod => prod.id === id)))
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error))
+            .finally(()=> setLoading(false)) 
         }else{
             getProducts()
             .then(products => setDetalleProducto (products))
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error))
+            .finally(()=> setLoading(false)) 
             
         }
     },[id]) 
 
     //console.log(id);
     //console.log(DetalleProducto);
-    return <div>
-        <ItemDetail detalle = {DetalleProducto}/>
-    </div>;
+    return (
+        <>  
+        {loading ?
+        <h2>Cargando...</h2>
+        :
+        <ItemDetail detalle = {DetalleProducto}/>    
+        }
+        
+        </>
+
+
+
+    )
 };
 
 export default ItemDetailContainer;
