@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import "./Item.css"
+
 
 
 
 
 const Item = ({id, nombre, descripcion, valor, img, stock, onAdd}) => {
 
-
+    
     
 
     return (
@@ -24,7 +26,7 @@ const Item = ({id, nombre, descripcion, valor, img, stock, onAdd}) => {
                     </div>
                     <div className="card-footer">
                         <Link to={`/detalle/${id}`}>
-                            <button className="btn btn-outline-primary"  > DETALLE DEL PRODUCTO</button>
+                            <button className="btn btn-outline-primary"> DETALLE DEL PRODUCTO</button>
                         </Link>
                     </div>
                 </div>

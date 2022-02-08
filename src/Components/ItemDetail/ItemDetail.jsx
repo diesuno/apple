@@ -1,6 +1,5 @@
 import React from 'react';
 import './ItemDetail.css';
-import { Card, Button } from 'react-bootstrap';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
@@ -9,8 +8,9 @@ import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({detalle}) => {
    const [contador,setContador] = useState(0)
-   const { cardList, agregarAlCarrito} = useCartContext ()
+   const {agregarAlCarrito} = useCartContext ()
     function onAdd (cant){
+        agregarAlCarrito({...detalle,cantidad: cant})
         setContador(cant)
     }
     
