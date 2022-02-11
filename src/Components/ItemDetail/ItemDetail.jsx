@@ -15,7 +15,7 @@ const ItemDetail = ({detalle}) => {
     }
     
     return <div>
-                <div className='Container'>
+                <div className='Container border border-2'>
                     <div className='row m-5'>
                         <div className='col-6'>
                             <img className='size' src={detalle.img}></img>

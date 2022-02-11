@@ -8,7 +8,7 @@ import MacMiniM1 from "../image/macminim1.png"
 
 
 const productos = [{
-    id: "1",
+    id: "p1",
     nombre: "iPhone 12 Pro",
     categoria: "iphone",
     valor: 799,
@@ -17,7 +17,7 @@ const productos = [{
     descripcion: "El chip A14 Bionic es muy superior a cualquier otro chip de smartphone. El sistema de cámaras Pro te permite tomar fotos espectaculares con poca luz, y el iPhone 12 Pro Max lleva tu talento fotográfico mucho más allá. Además, el nuevo frente de Ceramic Shield es cuatro veces más resistente a las caídas. Descubre todo lo que el iPhone 12 Pro hace para llevarte al siguiente nivel."
 },
 {
-    id: "2",
+    id: "p2",
     nombre: "iPhone XR",
     categoria: "iphone",
     valor: 499,
@@ -27,7 +27,7 @@ const productos = [{
     
 },
 {
-    id: "3",
+    id: "p3",
     nombre: "iPhone SE",
     categoria: "iphone",
     valor: 399,
@@ -36,7 +36,7 @@ const productos = [{
     descripcion: "El iPhone Xr tiene una pantalla Liquid Retina de 6,1 pulgadas, el LCD más avanzado de la industria.1 Face ID avanzado. El chip más inteligente y potente en un smartphone. Un sistema de cámara revolucionario. Y además, está disponible en seis novedosos acabados."
 },
 {
-    id: "4",
+    id: "p4",
     nombre: "Macbook Air",
     categoria: "mac",
     valor: 999,
@@ -45,7 +45,7 @@ const productos = [{
     descripcion: "Nuestra notebook más ligera y delgada vuelve completamente renovada por dentro. Gracias al chip M1 de Apple, el CPU es hasta 3.5 veces más rápido y el GPU hasta 5 veces más veloz. El Neural Engine más avanzado permite un aprendizaje automático hasta 9 veces superior. La batería es la de mayor duración en una MacBook Air. Y su diseño sin ventilador es supersilencioso. Nunca ha sido tan fácil llevar tanto poder a todos lados."
 },
 {
-    id: "5",
+    id: "p5",
     nombre: "Macbook Pro",
     categoria: "mac",
     valor: 1299,
@@ -55,7 +55,7 @@ const productos = [{
     
 },
 {
-    id: "6",
+    id: "p6",
     nombre: "iMac",
     categoria: "mac",
     valor: 1299,
@@ -64,7 +64,7 @@ const productos = [{
     descripcion: "Dile hola a la nueva iMac. Creada con lo mejor de Apple, los superpoderes del chip M1 y un diseño que brilla en todos lados. En resumen, es justo lo que necesitabas."
 },
 {
-    id: "7",
+    id: "p7",
     nombre: "Mac Mini",
     categoria: "mac",
     valor: 699,

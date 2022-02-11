@@ -19,7 +19,7 @@ const Item = ({id, nombre, descripcion, valor, img, stock, onAdd}) => {
                         {nombre}
                     </h3>
                     <div className="card-body">
-                        <img width={250} src={img} alt='' />            
+                        <img width={150} src={img} alt='' />            
                         <div>
                             <h5>$ {valor}</h5>
                         </div>                                                           

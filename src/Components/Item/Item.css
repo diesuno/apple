@@ -1,7 +1,6 @@
 .cards{
-    display: grid;
-    grid-template-areas: 'producto1 producto2'   
-                         'producto3 producto4'
-                         'producto5 producto6'
-                         'producto7 producto7'}
+    display: flex;
+    columns: 500px 500px;
+    
+    }
 

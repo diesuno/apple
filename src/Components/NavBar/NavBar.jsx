@@ -23,7 +23,6 @@ const NavBar = () => {
                 <Nav className="me-auto">
                   <Link className='text-white nav2 nav' to='/categoria/iphone'>iPhone</Link>
                   <Link className='text-white nav3 nav' to='/categoria/mac'>Mac</Link>
-                  <Link className='text-white nav4 nav' to='/categoria/contacto'>Contacto</Link>  
                 </Nav>
                 <Nav>
                 <Link to="/cart">

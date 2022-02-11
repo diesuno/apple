@@ -18,7 +18,7 @@ function App() {
     
     <BrowserRouter>
       <CartContextProvider>
-            <div className="App border border-3 border-primary" /* onClick={()=>console.log("soy evento del app")} */>
+            <div className="App " /* onClick={()=>console.log("soy evento del app")} */>
               <NavBar/>
               <Routes>
                 <Route exact path='/' element={ <ItemListContainer />}/>

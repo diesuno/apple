@@ -39,6 +39,14 @@ function CartContextProvider({ children }) {
         setCartList([])
         
     }
+    const total = () =>{
+        return cartList.reduce((acum, product) => acum = acum + product.valor, 0 )
+    }
+    const cantidadTotal = () =>{
+        return cartList.reduce((acum, product) => acum = acum + product.cantidad, 0 )
+    }
+
+    
 
     const chequearDuplicados = (parametro) =>  { 
         const buscarDuplicado = cartList.find( (i) => {
@@ -52,6 +60,8 @@ function CartContextProvider({ children }) {
       cartList,
       agregarAlCarrito,
       eliminarProducto,
+      total,
+      cantidadTotal,
       vaciarCarrito
   }} >
         {children}
