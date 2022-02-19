@@ -171,7 +171,7 @@ const handleChange = (event) => {
         </>: 
         <div>
           
-          <h4 className='border border-2' >No hay productos seleccionados</h4>
+          <h2 className='border border-2'  >No hay productos seleccionados : (</h2>
          
           <Link to="/">
             <button className="btn btn-outline-primary">Seguir comprando</button>

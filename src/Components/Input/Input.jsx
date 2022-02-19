@@ -3,8 +3,7 @@ import React, {useState} from 'react';
 export const Input = () => {
     const [data, setData] = useState({letra: ""})
     const inputHandler = (event) =>{
-       // event.preventDefault()
-      //event.stopPropagation()
+
         
         setData({
             ...data,

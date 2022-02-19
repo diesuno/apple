@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import img from '../Carrito/carrito.png'
+
 
 
 export const ItemCount = ({initial,stock,onAdd}) =>{
@@ -17,7 +19,7 @@ export const ItemCount = ({initial,stock,onAdd}) =>{
             setcontador(contador -1)
         }
     }
-   /*  const {agregar} = useCartContext()  */
+
     const agregar  = ()=>{
         
         onAdd(contador)
@@ -30,7 +32,7 @@ export const ItemCount = ({initial,stock,onAdd}) =>{
            
             <button className="btn  col-2 btn-outline-primary" onClick={restar}> - </button> <br />
             <br />
-            <button className="btn btn-outline-primary btn-block" onClick={agregar}>Agregar al carro</button>
+            <button className="btn btn-outline-primary btn-block" onClick={agregar}><img src={img} alt='Logo' width={30} /></button>
         </div>
     )
 }

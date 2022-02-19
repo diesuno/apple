@@ -29,10 +29,11 @@ const ItemDetail = ({detalle}) => {
                     : 
                         <>
                             <Link to='/cart'>
-                                <button className="btn btn-outline-primary">Terminar compra</button>
-                            </Link>
+                                <button className="btn terminarCompra btn-outline-danger">Terminar compra</button>
+                            </Link> 
+                            
                             <Link to='/'>
-                                <button className="btn btn-outline-primary">Seguir Comprando</button>
+                                <button className="btn seguirComprando btn-outline-success">Seguir Comprando</button>
                             </Link>
                         </>
                 }
