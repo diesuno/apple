@@ -1,0 +1,15 @@
+.cartProduct{
+    display: grid;
+    grid-template-columns: 100px 350px 50px;
+    grid-template-rows: 100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    column-gap: 20px;
+    color: gray;
+}
+
+input{
+    text-align: center;
+}
+

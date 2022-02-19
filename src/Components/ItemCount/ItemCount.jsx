@@ -24,11 +24,11 @@ export const ItemCount = ({initial,stock,onAdd}) =>{
     } 
     return (
         <div className="container w-50">
-            <button className="btn btn-outline-primary"  onClick={aumentar}> + </button>
+            <button className=" col-2 btn btn-outline-primary"  onClick={aumentar}> + </button>
 
-            <h5>{`  ${contador}  `}</h5>
+            <h5 className=" col-2 btn" >{`  ${contador}  `}</h5>
            
-            <button className="btn btn-outline-primary" onClick={restar}> - </button> <br />
+            <button className="btn  col-2 btn-outline-primary" onClick={restar}> - </button> <br />
             <br />
             <button className="btn btn-outline-primary btn-block" onClick={agregar}>Agregar al carro</button>
         </div>

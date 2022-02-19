@@ -13,14 +13,15 @@ const Item = ({id, nombre, descripcion, valor, img, stock, onAdd}) => {
     
 
     return (
-            <div className='cards' id={id}>
-                <div className="card w-25 mt-5" >
+            <div className='col-4' id={id}>
+                <div className="card  mt-5" >
                     <h3 className="card-header">
                         {nombre}
                     </h3>
                     <div className="card-body">
                         <img width={150} src={img} alt='' />            
                         <div>
+                            <br />
                             <h5>$ {valor}</h5>
                         </div>                                                           
                     </div>

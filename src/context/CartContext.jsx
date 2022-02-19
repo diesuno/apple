@@ -8,27 +8,23 @@ function CartContextProvider({ children }) {
     
     const [cartList, setCartList] = useState([]);
 
-    
-
-
-
-    function agregarAlCarrito(element){
-        let valorSumado = (element.valor * element.cantidad)
-        if(chequearDuplicados(element.nombre)){
+      function agregarAlCarrito(item){
+        let valorSumado = (item.valor * item.cantidad)
+        if(chequearDuplicados(item.nombre)){
             const cambiarCantidad = [...cartList]
-            cambiarCantidad.forEach(item =>{
-                if(item.nombre === element.nombre){
-                    item.valor += valorSumado
-                    item.cantidad += element.cantidad
+            cambiarCantidad.forEach(producto =>{
+                if(producto.nombre === item.nombre){
+                    producto.valor += valorSumado
+                    producto.cantidad += item.cantidad
                 }
             })
           
             return setCartList(cambiarCantidad)
         }
-        return setCartList( [ ...cartList, {img: element.img, nombre: element.nombre, valor: valorSumado, cantidad: element.cantidad }] )
+        return setCartList( [ ...cartList, {id: item.id, img: item.img, nombre: item.nombre, valor: valorSumado, cantidad: item.cantidad }] )
         
-    }
-
+    } 
+ 
     const eliminarProducto = (item) => {
 		const eliminarItem = [...cartList]
 		const itemEliminado = eliminarItem.filter(x => x.nombre !== item)
@@ -38,6 +34,12 @@ function CartContextProvider({ children }) {
     function vaciarCarrito() {
         setCartList([])
         
+    }
+    const tax = 1.07 //tax Miami
+
+    
+    const totalTax = () =>{
+        return cartList.reduce((acum, product) => acum = acum + ((product.valor * tax) - product.valor ), 0 ).toFixed(2)
     }
     const total = () =>{
         return cartList.reduce((acum, product) => acum = acum + product.valor, 0 )
@@ -58,10 +60,12 @@ function CartContextProvider({ children }) {
 
   return <cartContext.Provider value={{
       cartList,
+      chequearDuplicados,
       agregarAlCarrito,
       eliminarProducto,
       total,
       cantidadTotal,
+      totalTax,
       vaciarCarrito
   }} >
         {children}
