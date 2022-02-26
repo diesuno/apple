@@ -1,17 +1,17 @@
 import { createContext, useState, useContext } from "react";
 
-const cartContext = createContext([])
+const contenidoDelCarro = createContext([])
 
-export function useCartContext() {return useContext(cartContext)} 
+export function useCartContext() {return useContext(contenidoDelCarro)} 
 
-function CartContextProvider({ children }) {
+function ProveedorDeContenidosDelCarro({ children }) {
     
-    const [cartList, setCartList] = useState([]);
+    const [listaDeCarro, guardarListaEnCarro] = useState([]);
 
       function agregarAlCarrito(item){
         let valorSumado = (item.valor * item.cantidad)
         if(chequearDuplicados(item.nombre)){
-            const cambiarCantidad = [...cartList]
+            const cambiarCantidad = [...listaDeCarro]
             cambiarCantidad.forEach(producto =>{
                 if(producto.nombre === item.nombre){
                     producto.valor += valorSumado
@@ -19,47 +19,48 @@ function CartContextProvider({ children }) {
                 }
             })
           
-            return setCartList(cambiarCantidad)
+            return guardarListaEnCarro(cambiarCantidad)
         }
-        return setCartList( [ ...cartList, {id: item.id, img: item.img, nombre: item.nombre, valor: valorSumado, cantidad: item.cantidad }] )
+        return guardarListaEnCarro( [ ...listaDeCarro, {id: item.id, img: item.img, nombre: item.nombre, valor: valorSumado, cantidad: item.cantidad }] )
         
     } 
  
     const eliminarProducto = (item) => {
-		const eliminarItem = [...cartList]
+		const eliminarItem = [...listaDeCarro]
 		const itemEliminado = eliminarItem.filter(x => x.nombre !== item)
-		return setCartList(itemEliminado)
+		return guardarListaEnCarro(itemEliminado)
 	}
 
     function vaciarCarrito() {
-        setCartList([])
+        guardarListaEnCarro([])
         
     }
-    const tax = 1.07 //tax Miami
+    const tax = 1.08 //tax Miami
 
     
     const totalTax = () =>{
-        return cartList.reduce((acum, product) => acum = acum + ((product.valor * tax) - product.valor ), 0 ).toFixed(2)
+        return listaDeCarro.reduce((acum, product) => acum = acum + ((product.valor * tax) - product.valor ), 0 ).toFixed(2)
     }
     const total = () =>{
-        return cartList.reduce((acum, product) => acum = acum + product.valor, 0 )
+        return listaDeCarro.reduce((acum, product) => acum = acum + (product.valor * tax), 0 ).toFixed(2)
     }
+   
     const cantidadTotal = () =>{
-        return cartList.reduce((acum, product) => acum = acum + product.cantidad, 0 )
+        return listaDeCarro.reduce((acum, product) => acum = acum + product.cantidad, 0 )
     }
 
     
 
     const chequearDuplicados = (parametro) =>  { 
-        const buscarDuplicado = cartList.find( (i) => {
+        const buscarDuplicado = listaDeCarro.find( (i) => {
             return i.nombre === parametro
         })
         return buscarDuplicado
     }
 
 
-  return <cartContext.Provider value={{
-      cartList,
+  return <contenidoDelCarro.Provider value={{
+      listaDeCarro,
       chequearDuplicados,
       agregarAlCarrito,
       eliminarProducto,
@@ -69,7 +70,7 @@ function CartContextProvider({ children }) {
       vaciarCarrito
   }} >
         {children}
-  </cartContext.Provider>;
+  </contenidoDelCarro.Provider>;
 }
 
-export default CartContextProvider;
+export default ProveedorDeContenidosDelCarro;

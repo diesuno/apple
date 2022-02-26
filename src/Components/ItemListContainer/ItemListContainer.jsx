@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
-import ItemList from '../ItemList/ItemList';
+import ListadoItems from '../ItemList/ItemList';
 
 
 
@@ -9,27 +9,27 @@ import ItemList from '../ItemList/ItemList';
 
 
 
-const ItemListContainer = () => {
-    const [products, setListadoProductos] = useState([]);
-    const [loading, setloading] = useState(true)
+const ListaContenedoraProductos = () => {
+    const [productos, guardarListadoProductos] = useState([]);
+    const [cargador, guardarCargador] = useState(true)
     const {categoria} = useParams()
 
         useEffect(()=> {
-            const database = getFirestore()
+            const baseDeDatos = getFirestore()
             
-            const queryCollection = collection(database, "items")
+            const consultaDeColecciones = collection(baseDeDatos, "items")
 
-            const queryF = ! categoria ? 
-            queryCollection                
+            const consultaFirebase = ! categoria ? 
+            consultaDeColecciones                
              : 
-            query(queryCollection, 
+            query(consultaDeColecciones, 
                 where('categoria', '==', categoria)                
             )  
 
-                getDocs(queryF)
-                .then(resp => setListadoProductos( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } )  ) ))
+                getDocs(consultaFirebase)
+                .then(respuesta => guardarListadoProductos( respuesta.docs.map(producto => ( { id: producto.id, ...producto.data() } )  ) ))
                 .catch((err) => console.log(err))
-                .finally(() => setloading(false))            
+                .finally(() => guardarCargador(false))            
                         
             }, [categoria])
 
@@ -38,15 +38,15 @@ const ItemListContainer = () => {
     return (
         <div className='container'>
             {
-                loading ? 
+                cargador ? 
                 <h2>Cargando...</h2>
                 :
                 
-                <ItemList listado={products}/> 
+                <ListadoItems listado={productos}/> 
             }
             
         </div>
     );
 };
 
-export default ItemListContainer
+export default ListaContenedoraProductos

@@ -1,0 +1,8 @@
+.formulario{
+
+    display: grid;
+    justify-content: center;
+    border: solid 2px rgba(128, 128, 128, 0.782);
+   
+    
+}

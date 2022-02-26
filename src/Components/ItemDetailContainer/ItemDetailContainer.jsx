@@ -1,14 +1,13 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
-import ItemDetail from '../ItemDetail/ItemDetail';
+import DetalleProducto from '../ItemDetail/ItemDetail';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 
-const ItemDetailContainer = () => {
+const ContenedorDetalladoItems = () => {
 
-    const [detalleProducto, setDetalleProducto] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [detalleProducto, guardarDetalleProducto] = useState([]);
+    const [cargador, guardarCargador] = useState(true);
     const {id} = useParams();
 
     
@@ -16,9 +15,9 @@ const ItemDetailContainer = () => {
             const database = getFirestore()
             const detalleProducto = doc(database,"items",id) 
             getDoc(detalleProducto)
-            .then(respuesta => setDetalleProducto({id: respuesta.id, ...respuesta.data()}))
+            .then(respuesta => guardarDetalleProducto({id: respuesta.id, ...respuesta.data()}))
             .catch((error) => console.log(error))
-            .finally(()=> setLoading(false)) 
+            .finally(()=> guardarCargador(false)) 
 
 
     },[id]) 
@@ -28,10 +27,10 @@ const ItemDetailContainer = () => {
  
     return (
         <>  
-        {loading ?
+        {cargador ?
         <h2>Cargando...</h2>
         :
-        <ItemDetail detalle = {detalleProducto}/>    
+        <DetalleProducto detalle = {detalleProducto}/>    
         }
         
         </>
@@ -41,4 +40,4 @@ const ItemDetailContainer = () => {
     )
 };
 
-export default ItemDetailContainer;
+export default ContenedorDetalladoItems;

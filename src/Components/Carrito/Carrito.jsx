@@ -1,5 +1,5 @@
 import { useCartContext } from '../../context/CartContext'
-import img from '../Carrito/carrito.png'
+import img from '../Carrito/carritoBlanco.png'
 
 
 

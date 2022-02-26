@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-
 import "./Item.css"
 
 
 
 
 
-const Item = ({id, nombre, descripcion, valor, img, stock}) => {
+const Productos = ({id, nombre, valor, img}) => {
   
    
     
@@ -41,4 +38,4 @@ const Item = ({id, nombre, descripcion, valor, img, stock}) => {
             
 )}
 
-export default Item
+export default Productos

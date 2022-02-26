@@ -1,22 +1,22 @@
 import { useState } from 'react'
 
-import img from '../Carrito/carrito.png'
+import img from '../Carrito/carritoNegro.png'
 
 
 
-export const ItemCount = ({initial,stock,onAdd}) =>{
+export const ContadorItems = ({initial,stock,onAdd}) =>{
 
     
-    const [contador,setcontador] = useState(initial)
+    const [contador,guardarContador] = useState(initial)
     
     const aumentar = ()=>{
         if (contador < stock){
-            setcontador(contador +1)
+            guardarContador(contador +1)
         }
     }
     const restar = ()=>{
         if (contador > initial){
-            setcontador(contador -1)
+            guardarContador(contador -1)
         }
     }
 

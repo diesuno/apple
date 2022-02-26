@@ -1,14 +1,12 @@
-import React from 'react';
-import Item from '../Item/Item';
+import Productos from '../Item/Item';
 
 
 
-const ItemList = ({listado}) => {
-    //console.log(listado);
+const ListadoItems = ({listado}) => {
     return (
     <div className='row'>
         {listado.map( (producto) => (
-        <Item
+        <Productos
         key= {producto.id}
         id= {producto.id}
         categoria= {producto.categoria}
@@ -23,4 +21,4 @@ const ItemList = ({listado}) => {
     );
 };
 
-export default ItemList
+export default ListadoItems
