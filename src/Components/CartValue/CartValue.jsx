@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
-import "./totalPrice.css"
+import "./cartValue.css"
 
-const PrecioTotal = () => {
+const ValorCarro = () => {
     const {totalTax,total, vaciarCarrito} = useCartContext ([])
   return (
-    <div className='precioTotal'>
+    <div className='valorCarro'>
     
     <br />
     
@@ -29,4 +29,4 @@ const PrecioTotal = () => {
   )
 }
 
-export default PrecioTotal
+export default ValorCarro

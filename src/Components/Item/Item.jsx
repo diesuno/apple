@@ -24,7 +24,7 @@ const Productos = ({id, nombre, valor, img}) => {
                         <img width={150} src={img} alt='' />            
                         <div>
                             <br />
-                            <h5>$ {valor}</h5>                      
+                            <h5>U$S {valor}</h5>                      
                         </div>                                                           
                     </div>
                     <div className="card-footer">

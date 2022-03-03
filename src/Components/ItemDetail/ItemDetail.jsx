@@ -11,6 +11,7 @@ const DetalleProducto = ({detalle}) => {
     function onAdd (cant){
         agregarAlCarrito({...detalle,cantidad: cant})
         guardarContador(cant)
+
     }
     
     return <div>
@@ -22,6 +23,7 @@ const DetalleProducto = ({detalle}) => {
                         <div className='col-6 info'>
                             <h1>{detalle.nombre}</h1>
                             <p>{detalle.descripcion}</p>
+                            <h3>$ {detalle.valor}</h3>
                             {
                     contador === 0 ?
                         <ContadorItems onAdd={onAdd} initial={1} stock={detalle.stock} />                    

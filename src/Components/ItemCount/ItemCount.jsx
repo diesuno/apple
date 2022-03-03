@@ -28,7 +28,7 @@ export const ContadorItems = ({initial,stock,onAdd}) =>{
         <div className="container w-50">
             <button className=" col-2 btn btn-outline-primary"  onClick={aumentar}> + </button>
 
-            <h5 className=" col-2 btn" >{`  ${contador}  `}</h5>
+            <h4 className=" col-2 btn" >{`  ${contador}  `}</h4>
            
             <button className="btn  col-2 btn-outline-primary" onClick={restar}> - </button> <br />
             <br />

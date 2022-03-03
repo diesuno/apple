@@ -2,7 +2,9 @@ import { useCartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import "./cart.css"
 import ProductoCarro from '../ItemCart/ItemCart';
-import PrecioTotal from '../TotalPrice/TotalPrice';
+import ValorCarro from '../CartValue/CartValue';
+
+
 
 
 
@@ -22,7 +24,7 @@ const Carrito = () => {
      <>
 
      <ProductoCarro/>      
-     <PrecioTotal/>
+     <ValorCarro/>
         
 
     

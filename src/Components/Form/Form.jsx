@@ -5,7 +5,8 @@ import { Button, Col, Form, FormControl, FormGroup, FormLabel, InputGroup, Row }
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
 import "./form.css"
-
+import ProductoCarro from '../ItemCart/ItemCart'
+import ValorOrden from '../orderValue/OrderValue'
 
 const Formulario = () => {
     const [validar, guardarValidacion] = useState(false);
@@ -111,12 +112,11 @@ const Formulario = () => {
     <Form  noValidate validated={validar} onSubmit={realizarCompra}>
       <Row className="mb-3">
         <FormGroup as={Col} md="4" controlId="validationCustom01">
-          <FormLabel>Nombre y Apellido</FormLabel>
+          <FormLabel>Nombre</FormLabel>
           <FormControl 
             required
             type="text"
             name='nombre'
-            placeholder="Nombre y Apellido"
             onChange={herramientaDeCambio}
             value={informacionFormulario.nombre}
           />
@@ -127,7 +127,6 @@ const Formulario = () => {
           <FormControl
             required
             type="number"
-            placeholder="Telefono"
             name='telefono'
             onChange={herramientaDeCambio}
             value={informacionFormulario.telefono}
@@ -141,7 +140,6 @@ const Formulario = () => {
             <FormControl
               type="email"
               name='correo'
-              placeholder="Correo Electronico"
               aria-describedby="inputGroupPrepend"
               onChange={herramientaDeCambio}
               value={informacionFormulario.correo}
@@ -153,11 +151,12 @@ const Formulario = () => {
           </InputGroup>
         </Form.Group>
       </Row>
-     
+      <ProductoCarro/> 
+      <ValorOrden/> 
       <Link to='/'>
             <button className='btn btn-danger m-2'onClick={vaciarCarrito}>Cerrar</button>
      </Link>
-      <Button type="submit" disabled={!informacionFormulario.correo   || !informacionFormulario.nombre || !informacionFormulario.telefono} onClick={ejecutarEnviar}  >Comprar</Button>
+      <Button type="submit" disabled={(!informacionFormulario.correo )  || !informacionFormulario.nombre || !informacionFormulario.telefono} onClick={ejecutarEnviar}  >Comprar</Button>
     </Form>
     <br />
     </div>

@@ -18,7 +18,9 @@ const ContenedorDetalladoItems = () => {
             .then(respuesta => guardarDetalleProducto({id: respuesta.id, ...respuesta.data()}))
             .catch((error) => console.log(error))
             .finally(()=> guardarCargador(false)) 
+    
 
+        
 
     },[id]) 
  
@@ -27,6 +29,8 @@ const ContenedorDetalladoItems = () => {
  
     return (
         <>  
+
+        
         {cargador ?
         <h2>Cargando...</h2>
         :

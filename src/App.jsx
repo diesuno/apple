@@ -2,11 +2,11 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import  NavBar  from "./Components/NavBar/NavBar"
 import './App.css';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+import ListaContenedoraProductos from './Components/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from "./Components/Cart/Cart"
-import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer"
-import CartContextProvider from "./context/CartContext";
+import Carrito from "./Components/Cart/Cart"
+import ContenedorDetalladoItems from "./Components/ItemDetailContainer/ItemDetailContainer"
+import ProveedorDeContenidosDelCarro from "./context/CartContext";
 import Formulario from "./Components/Form/Form";
 
 
@@ -17,20 +17,20 @@ function App() {
   return (
     
     <BrowserRouter>
-      <CartContextProvider>
+      <ProveedorDeContenidosDelCarro>
             <div className="App " >
               <NavBar/>
               <Routes>
-                <Route exact path='/' element={ <ItemListContainer />}/>
-                <Route exact path='/categoria/:categoria' element={ <ItemListContainer />}/>
-                <Route exact path='/detalle/:id' element={ <ItemDetailContainer />}/>
-                <Route exact path='/cart' element={ <Cart />}/>
+                <Route exact path='/' element={ <ListaContenedoraProductos />}/>
+                <Route exact path='/categoria/:categoria' element={ <ListaContenedoraProductos />}/>
+                <Route exact path='/detalle/:id' element={ <ContenedorDetalladoItems />}/>
+                <Route exact path='/cart' element={ <Carrito />}/>
                 <Route exact path='/form' element={ <Formulario />}/>
 
               </Routes>
            
             </div>
-      </CartContextProvider>  
+      </ProveedorDeContenidosDelCarro>  
   </BrowserRouter>
   );
 }

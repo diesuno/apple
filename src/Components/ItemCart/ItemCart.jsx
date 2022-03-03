@@ -11,7 +11,7 @@ const ProductoCarro = () => {
           <div className='cartProduct'>
 
             <img src={producto.img} alt="" width={90} />
-            <p className='cartData'>{producto.nombre} -  $ {(producto.valor) }  Cantidad: {producto.cantidad} </p>
+            <p className='cartData'>{producto.nombre} -  U$S {(producto.valor) }  Cantidad: {producto.cantidad} </p>
             <button className="btn borrarUno btn-outline-danger" onClick={() => eliminarProducto(producto.nombre)}>X</button>
           </div>
          
